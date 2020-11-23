@@ -11,7 +11,7 @@ class LatestMovieReviewsContainer extends Component {
   constructor(props) {
     super()
     this.state = {
-      results: []
+      reviews: []
     }
   }
 
@@ -19,15 +19,15 @@ class LatestMovieReviewsContainer extends Component {
     fetch(URL)
     .then(response => response.json())
     .then(data => {
-      console.log("NYT:", data)      
+      // console.log("NYT:", data)      
       this.setState({
-        results: data.results
+        reviews: data.results
       })
     })
   }
 
   render() {
-  return <div className="latest-movie-reviews"><MovieReviews data={this.state.results}/></div>
+  return <div className="latest-movie-reviews"><MovieReviews reviews={this.state.reviews}/></div>
   }
 }
  
